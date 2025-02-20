@@ -742,6 +742,11 @@ swa deploy ./publish/wwwroot -n upt-swa-XXX --env production
 
 1. Generar y subir el diagrama de infraestructura al repositorio como lab_02.png y el reporte de metricas. (2ptos)
 2. Realizar el escaneo del codigo de terraform utilizando TfSec o Trivy dentro del Github Action. (2ptos)
+
+![image](https://github.com/user-attachments/assets/b1c96039-7d53-45ef-b096-a4df7896c3ce)
+
+![image](https://github.com/user-attachments/assets/7b6e144a-dd7f-42fb-be6e-ee87dcd5a760)
+
 3. En la aplicación completar con las demas funcionalidades, de crear, actualizar y eliminar (4ptos)
 4. Realizar el escaneo de vulnerabilidad con SonarCloud y Semgrep dentro del Github Action correspondiente. (2ptos)
 5. Generar un Action para el despliegue de las dos aplicaciones, backend y frntend, incluyendo todo lo anterior. (4ptos)
