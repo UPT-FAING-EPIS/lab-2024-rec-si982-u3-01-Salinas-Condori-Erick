@@ -1,0 +1,33 @@
+name: Terraform Security Scan
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  security-scan:
+    name: Run tfsec Security Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install tfsec
+        run: |
+          curl -s https://api.github.com/repos/aquasecurity/tfsec/releases/latest \
+          | grep "browser_download_url.*tfsec-linux-amd64" \
+          | cut -d '"' -f 4 \
+          | wget -qi -
+          chmod +x tfsec-linux-amd64
+          sudo mv tfsec-linux-amd64 /usr/local/bin/tfsec
+
+      - name: Run tfsec and generate report
+        run: |
+          echo "### 📊 TFSEC Security Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          tfsec --format=markdown --soft-fail . >> $GITHUB_STEP_SUMMARY
