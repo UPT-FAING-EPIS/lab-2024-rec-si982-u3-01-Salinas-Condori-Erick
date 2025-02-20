@@ -347,6 +347,8 @@ dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version=8.0.0
 dotnet add package Microsoft.EntityFrameworkCore.Tools --version=8.0.0
 ```
 
+![image](https://github.com/user-attachments/assets/3ba45a4f-f940-4242-b995-d2ddbfbea8fd)
+
 2. En el VS Code, buscar el proyecto ShortenFunction modificar el archivo ShortenHttp.cs, con el siguiente contenido:
 ```CSharp
 using System;
@@ -522,6 +524,8 @@ namespace ShortenFunction
 
 ```
 
+![image](https://github.com/user-attachments/assets/b56f6451-06ef-432c-9e23-7cce3d0a5bc3)
+
 3. En el VS Code, buscar el proyecto ShortenFunction modificar el archivo local.settings.json, con el siguiente contenido:
 ```JSon
 {
@@ -539,16 +543,27 @@ namespace ShortenFunction
 >       YYY, usuario administrador de base de datos
 >       ZZZ, password del usuario de base de datos
 
+![image](https://github.com/user-attachments/assets/ceb4abbb-5e4e-4593-af8a-57961cce6742)
+
 4. En el Terminal, ejecutar el siguiente comando para crear las tablas de base de datos de identidad.
 ```Bash
 dotnet ef migrations add CreateIdentitySchema
 dotnet ef database update
 ```
 
+![image](https://github.com/user-attachments/assets/bc53a2de-eafd-4a44-95e3-9cb90e93eb40)
+
+![image](https://github.com/user-attachments/assets/c20b3fdc-6b64-4b0d-b5c7-1cb6ea5ea2d7)
+
 5. En el Terminal, ejecutar el siguiente comando para ejecutar la aplicación.
 ```Bash
 func start
 ```
+
+![image](https://github.com/user-attachments/assets/e5e077f6-cf94-463c-8897-2f7295318893)
+
+![image](https://github.com/user-attachments/assets/e0b0a4f6-0ea5-48ae-8696-b9149ef86d8c)
+
 
 6. En el Terminal, ejecutar el siguiente comando para configurar, compilar y desplegar la aplicación.
 ```Bash
@@ -563,8 +578,24 @@ az functionapp deployment source config-zip -g upt-arg-373 -n upt-afn-373 --src 
 >       YYY, usuario administrador de base de datos
 >       ZZZ, password del usuario de base de datos
 
+
+![image](https://github.com/user-attachments/assets/a4f18cdb-e285-4fc9-9d40-34dd0bb9f8b3)
+
+![image](https://github.com/user-attachments/assets/a06c45a1-fa4e-4079-9755-1d9220251671)
+
+![image](https://github.com/user-attachments/assets/c9609cfd-778e-48c2-a731-379667dbdfb5)
+
+![image](https://github.com/user-attachments/assets/7589374c-aa93-4f7a-bde1-e37d955b3b2b)
+
+![image](https://github.com/user-attachments/assets/77e031a9-e2fe-4137-89ba-79ba0e45dbb9)
+
+
+
 7. En el Navegador, abrir una nueva pestaña e ingresar a la url https://upt-afn-XXX.azurewebsites.net/api/shorturl
 >Donde: XXX, id de su azure function
+
+![image](https://github.com/user-attachments/assets/383e5aa3-df14-4468-82ac-7f292a267895)
+
 
 ### CONSTRUCCION DE LA APLICACION - FRONTEND
 
