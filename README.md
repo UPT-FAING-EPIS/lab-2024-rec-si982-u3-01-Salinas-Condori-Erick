@@ -606,6 +606,10 @@ cd ShortenApp
 dotnet new razorcomponent -n UrlMapping -o Pages
 code .
 ```
+
+![image](https://github.com/user-attachments/assets/8302a1b9-ab5b-496b-92ab-ea2fad58db0b)
+
+
 9. En Visual Studio Code, dentro del proyecto ClienteApp, editar el archivo UrlMapping.razor con el siguiente contenido:
 ```CSharp
 @page "/urlmapping"
@@ -674,6 +678,10 @@ else
     }
 }
 ```
+
+![image](https://github.com/user-attachments/assets/94fe1131-23a1-4dc9-aa22-5e29f5422a6c)
+
+
 10. En Visual Studio Code, en el proyecto ClienteApp en la ruta Layout modificar el archivo NavMenu.razor
 > dice
 ```Razor
@@ -687,6 +695,9 @@ else
                 <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Urls Acortadas
             </NavLink>
 ```
+
+![image](https://github.com/user-attachments/assets/5f15ea5a-86e2-4782-9935-ef0ec5fc10d1)
+
 11. En Visual Studio Code, modificar el archivo program.cs, reemplazar la linea
 > dice
 ```CSharp
@@ -698,7 +709,13 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https:/
 ```
 >Donde: XXX, id del azure function
 
+![image](https://github.com/user-attachments/assets/febd5b2d-24b2-48a6-9878-327f2d1be8c6)
+
 12. (Opcional) en el terminal, ubicarse en la carpeta ClienteAPI, ejecutar el comando `dotnet run` para iniciar la aplicación. Anotar el numero de puerto que aparecera: Now listening on: http://localhost:XXXX. Abrir un navegador de internet e ingresar la url: http://localhost:XXXX
+
+![image](https://github.com/user-attachments/assets/15e5da29-ea61-4674-a89a-50ed2a9ecd04)
+
+![image](https://github.com/user-attachments/assets/ac65015e-ac37-45be-9bf2-659a26fd1dc3)
 
 13. (Opcional) en el navegador de internet, hacer click en la opción de la barra de navegación para generar una Aplicación Web Progresiva (PWA), lo cual creará una aplicación de escritorio utilizando la aplicación web desarrollada.
 
@@ -709,9 +726,14 @@ swa deploy ./publish/wwwroot -n upt-swa-XXX --env production
 ```
 >Donde: XXX, id del azure static webapp
 
+![image](https://github.com/user-attachments/assets/5aceeb6c-919c-4a52-99b2-7e2a603dcf17)
+
+![image](https://github.com/user-attachments/assets/e7da54fc-a523-47ca-a4b8-4f06f726b35d)
+
+
 15. En el Terminal, se visualizara el link de la Webapp Estatica, hacer click en el para verificar los resultados.
 
-![image](https://github.com/user-attachments/assets/463ed443-3843-44a1-95bf-c7a9aa999666)
+![image](https://github.com/user-attachments/assets/f709cf21-fa0d-46dd-80fd-0b82c4385b05)
 
 
 ## ACTIVIDADES ENCARGADAS
