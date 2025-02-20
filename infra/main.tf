@@ -36,12 +36,12 @@ resource "random_integer" "ri" {
 
 # Create the resource group
 resource "azurerm_resource_group" "rg" {
-  name     = "upt-arg-${random_integer.ri.result}"
+  name     = "upt-arg-101"
   location = "eastus2"
 }
 
 resource "azurerm_storage_account" "storageaccount" {
-  name                     = "uptasa${random_integer.ri.result}"
+  name                     = "uptasa101"
   location                 = azurerm_resource_group.rg.location
   resource_group_name      = azurerm_resource_group.rg.name
   account_tier             = "Standard"
@@ -50,7 +50,7 @@ resource "azurerm_storage_account" "storageaccount" {
 
 # Create the Linux App Service Plan
 resource "azurerm_service_plan" "appserviceplan" {
-  name                = "upt-asp-${random_integer.ri.result}"
+  name                = "upt-asp-101"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   os_type             = "Linux"
@@ -58,7 +58,7 @@ resource "azurerm_service_plan" "appserviceplan" {
 }
 
 resource "azurerm_linux_function_app" "azurefunction" {
-  name                = "upt-afn-${random_integer.ri.result}"
+  name                = "upt-afn-101"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   storage_account_name       = azurerm_storage_account.storageaccount.name
@@ -74,13 +74,13 @@ resource "azurerm_linux_function_app" "azurefunction" {
 }
 
 resource "azurerm_static_web_app" "example" {
-  name                = "upt-swa-${random_integer.ri.result}"
+  name                = "upt-swa-101"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 }
 
 resource "azurerm_mssql_server" "sqlsrv" {
-  name                         = "upt-dbs-${random_integer.ri.result}"
+  name                         = "upt-dbs-101"
   resource_group_name          = azurerm_resource_group.rg.name
   location                     = azurerm_resource_group.rg.location
   version                      = "12.0"
