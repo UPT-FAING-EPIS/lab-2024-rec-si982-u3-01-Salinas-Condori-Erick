@@ -36,6 +36,9 @@
 ```Powershell
 md infra
 ```
+
+![image](https://github.com/user-attachments/assets/fc6a2197-1bdd-4061-ac6a-9a5c4abb7fb1)
+
 2. Abrir Visual Studio Code, seguidamente abrir la carpeta del repositorio clonado del laboratorio, en el folder Infra, crear el archivo main.tf con el siguiente contenido
 ```Terraform
 terraform {
@@ -142,6 +145,8 @@ resource "azurerm_mssql_database" "sqldb" {
 }
 ```
 
+![image](https://github.com/user-attachments/assets/efddeb21-e1d9-4d17-b812-b905a2b47fa6)
+
 3. Abrir un navegador de internet y dirigirse a su repositorio en Github, en la sección *Settings*, buscar la opción *Secrets and Variables* y seleccionar la opción *Actions*. Dentro de esta crear los siguientes secretos
 > AZURE_USERNAME: Correo o usuario de cuenta de Azure
 > 
@@ -152,6 +157,8 @@ resource "azurerm_mssql_database" "sqldb" {
 > SQL_USER: Usuario administrador de la base de datos, ejm: adminsql
 > 
 > SQL_PASS: Password del usuario administrador de la base de datos, ejm: upt.2025
+
+![image](https://github.com/user-attachments/assets/7274bebc-1822-4e1f-8ae7-980e0ed80198)
 
 5. En el Visual Studio Code, crear la carpeta .github/workflows en la raiz del proyecto, seguidamente crear el archivo deploy.yml con el siguiente contenido
 <details><summary>Click to expand: deploy.yml</summary>
@@ -318,10 +325,14 @@ jobs:
 ```
 </details>
 
+![image](https://github.com/user-attachments/assets/4db60859-70a1-4bc0-b3aa-611746fbb428)
+
 6. En el Visual Studio Code, guardar los cambios y subir los cambios al repositorio. Revisar los logs de la ejeuciòn de automatizaciòn y anotar el numero de identificaciòn de Grupo de Recursos y Aplicación Web creados
 ```Bash
 azurerm_linux_web_app.webapp: Creation complete after 53s [id=/subscriptions/1f57de72-50fd-4271-8ab9-3fc129f02bc0/resourceGroups/upt-arg-XXX/providers/Microsoft.Web/sites/upt-awa-XXX]
 ```
+
+![image](https://github.com/user-attachments/assets/3b5438d0-3722-4531-8aa2-713f7c9b1f6e)
 
 ### CONSTRUCCION DE LA APLICACION - BACKEND
 
@@ -335,6 +346,8 @@ func new --name ShortenHttp --template "HTTP trigger" --authlevel "anonymous"
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version=8.0.0
 dotnet add package Microsoft.EntityFrameworkCore.Tools --version=8.0.0
 ```
+
+![image](https://github.com/user-attachments/assets/3ba45a4f-f940-4242-b995-d2ddbfbea8fd)
 
 2. En el VS Code, buscar el proyecto ShortenFunction modificar el archivo ShortenHttp.cs, con el siguiente contenido:
 ```CSharp
@@ -511,6 +524,8 @@ namespace ShortenFunction
 
 ```
 
+![image](https://github.com/user-attachments/assets/b56f6451-06ef-432c-9e23-7cce3d0a5bc3)
+
 3. En el VS Code, buscar el proyecto ShortenFunction modificar el archivo local.settings.json, con el siguiente contenido:
 ```JSon
 {
@@ -528,16 +543,27 @@ namespace ShortenFunction
 >       YYY, usuario administrador de base de datos
 >       ZZZ, password del usuario de base de datos
 
+![image](https://github.com/user-attachments/assets/ceb4abbb-5e4e-4593-af8a-57961cce6742)
+
 4. En el Terminal, ejecutar el siguiente comando para crear las tablas de base de datos de identidad.
 ```Bash
 dotnet ef migrations add CreateIdentitySchema
 dotnet ef database update
 ```
 
+![image](https://github.com/user-attachments/assets/bc53a2de-eafd-4a44-95e3-9cb90e93eb40)
+
+![image](https://github.com/user-attachments/assets/c20b3fdc-6b64-4b0d-b5c7-1cb6ea5ea2d7)
+
 5. En el Terminal, ejecutar el siguiente comando para ejecutar la aplicación.
 ```Bash
 func start
 ```
+
+![image](https://github.com/user-attachments/assets/e5e077f6-cf94-463c-8897-2f7295318893)
+
+![image](https://github.com/user-attachments/assets/e0b0a4f6-0ea5-48ae-8696-b9149ef86d8c)
+
 
 6. En el Terminal, ejecutar el siguiente comando para configurar, compilar y desplegar la aplicación.
 ```Bash
@@ -552,8 +578,24 @@ az functionapp deployment source config-zip -g upt-arg-373 -n upt-afn-373 --src 
 >       YYY, usuario administrador de base de datos
 >       ZZZ, password del usuario de base de datos
 
+
+![image](https://github.com/user-attachments/assets/a4f18cdb-e285-4fc9-9d40-34dd0bb9f8b3)
+
+![image](https://github.com/user-attachments/assets/a06c45a1-fa4e-4079-9755-1d9220251671)
+
+![image](https://github.com/user-attachments/assets/c9609cfd-778e-48c2-a731-379667dbdfb5)
+
+![image](https://github.com/user-attachments/assets/7589374c-aa93-4f7a-bde1-e37d955b3b2b)
+
+![image](https://github.com/user-attachments/assets/77e031a9-e2fe-4137-89ba-79ba0e45dbb9)
+
+
+
 7. En el Navegador, abrir una nueva pestaña e ingresar a la url https://upt-afn-XXX.azurewebsites.net/api/shorturl
 >Donde: XXX, id de su azure function
+
+![image](https://github.com/user-attachments/assets/383e5aa3-df14-4468-82ac-7f292a267895)
+
 
 ### CONSTRUCCION DE LA APLICACION - FRONTEND
 
@@ -564,6 +606,10 @@ cd ShortenApp
 dotnet new razorcomponent -n UrlMapping -o Pages
 code .
 ```
+
+![image](https://github.com/user-attachments/assets/8302a1b9-ab5b-496b-92ab-ea2fad58db0b)
+
+
 9. En Visual Studio Code, dentro del proyecto ClienteApp, editar el archivo UrlMapping.razor con el siguiente contenido:
 ```CSharp
 @page "/urlmapping"
@@ -632,6 +678,10 @@ else
     }
 }
 ```
+
+![image](https://github.com/user-attachments/assets/94fe1131-23a1-4dc9-aa22-5e29f5422a6c)
+
+
 10. En Visual Studio Code, en el proyecto ClienteApp en la ruta Layout modificar el archivo NavMenu.razor
 > dice
 ```Razor
@@ -645,6 +695,9 @@ else
                 <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Urls Acortadas
             </NavLink>
 ```
+
+![image](https://github.com/user-attachments/assets/5f15ea5a-86e2-4782-9935-ef0ec5fc10d1)
+
 11. En Visual Studio Code, modificar el archivo program.cs, reemplazar la linea
 > dice
 ```CSharp
@@ -656,7 +709,13 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https:/
 ```
 >Donde: XXX, id del azure function
 
+![image](https://github.com/user-attachments/assets/febd5b2d-24b2-48a6-9878-327f2d1be8c6)
+
 12. (Opcional) en el terminal, ubicarse en la carpeta ClienteAPI, ejecutar el comando `dotnet run` para iniciar la aplicación. Anotar el numero de puerto que aparecera: Now listening on: http://localhost:XXXX. Abrir un navegador de internet e ingresar la url: http://localhost:XXXX
+
+![image](https://github.com/user-attachments/assets/15e5da29-ea61-4674-a89a-50ed2a9ecd04)
+
+![image](https://github.com/user-attachments/assets/ac65015e-ac37-45be-9bf2-659a26fd1dc3)
 
 13. (Opcional) en el navegador de internet, hacer click en la opción de la barra de navegación para generar una Aplicación Web Progresiva (PWA), lo cual creará una aplicación de escritorio utilizando la aplicación web desarrollada.
 
@@ -667,9 +726,14 @@ swa deploy ./publish/wwwroot -n upt-swa-XXX --env production
 ```
 >Donde: XXX, id del azure static webapp
 
+![image](https://github.com/user-attachments/assets/5aceeb6c-919c-4a52-99b2-7e2a603dcf17)
+
+![image](https://github.com/user-attachments/assets/e7da54fc-a523-47ca-a4b8-4f06f726b35d)
+
+
 15. En el Terminal, se visualizara el link de la Webapp Estatica, hacer click en el para verificar los resultados.
 
-![image](https://github.com/user-attachments/assets/463ed443-3843-44a1-95bf-c7a9aa999666)
+![image](https://github.com/user-attachments/assets/f709cf21-fa0d-46dd-80fd-0b82c4385b05)
 
 
 ## ACTIVIDADES ENCARGADAS
