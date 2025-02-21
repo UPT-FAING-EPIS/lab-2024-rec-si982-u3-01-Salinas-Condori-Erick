@@ -741,6 +741,9 @@ swa deploy ./publish/wwwroot -n upt-swa-XXX --env production
 ## ACTIVIDADES ENCARGADAS
 
 1. Generar y subir el diagrama de infraestructura al repositorio como lab_02.png y el reporte de metricas. (2ptos)
+
+![image](https://github.com/user-attachments/assets/210f1ed4-1992-4283-9750-46c445103171)
+
 2. Realizar el escaneo del codigo de terraform utilizando TfSec o Trivy dentro del Github Action. (2ptos)
 
 ![image](https://github.com/user-attachments/assets/b1c96039-7d53-45ef-b096-a4df7896c3ce)
