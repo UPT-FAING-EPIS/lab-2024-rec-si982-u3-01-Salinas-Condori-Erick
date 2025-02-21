@@ -37,7 +37,7 @@ resource "random_integer" "ri" {
 # Create the resource group
 resource "azurerm_resource_group" "rg" {
   name     = "upt-arg-101"
-  location = "westus"
+  location = "centralus"
 }
 
 resource "azurerm_storage_account" "storageaccount" {
